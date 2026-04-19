@@ -1,0 +1,105 @@
+{
+  "personal": {
+    "name": "Muhammed Abbas",
+    "role": "Full Stack Developer",
+    "tagline": "Master in JavaScript, Node.js, and MongoDB.",
+    "about": "I am a passionate Full Stack Developer with deep expertise in JavaScript, Node.js, and MongoDB. I pride myself on building smooth, scalable web applications, from responsive frontends to robust backend architectures.",
+    "resumeUrl": "./CV.pdf",
+    "email": "abbasakk398@gmail.com",
+    "socials": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/abbas2123"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/muhammad-abbas-543b74333"
+      },
+      {
+        "platform": "WhatsApp",
+        "url": "https://wa.me/916235387198"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "JavaScript (ES6+)",
+      "level": 95
+    },
+    {
+      "name": "Node.js",
+      "level": 95
+    },
+    {
+      "name": "MongoDB",
+      "level": 95
+    },
+    {
+      "name": "React",
+      "level": 85
+    },
+    {
+      "name": "Express.js",
+      "level": 95
+    },
+    {
+      "name": "HTML5 / CSS3",
+      "level": 95
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "NexaBid",
+      "description": "My main project—A highly scalable, real-time bidding and auction platform designed to handle significant user concurrency.",
+      "image": "https://s3.ap-south-1.amazonaws.com/m3india-app-dev/content/card/auction-1525869934-1539767554-1582896834.jpg",
+      "tags": [
+        "Node.js",
+        "MongoDB",
+        "JavaScript",
+        "Express"
+      ],
+      "github": "https://github.com/abbas2123/NexaBid.git",
+      "demo": ""
+    },
+    {
+      "id": 2,
+      "title": "Cancer Detection using Deep Learning",
+      "description": "An AI-powered mini-project that utilizes deep learning principles to detect and triage instances of skin cancer.",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
+      "tags": [
+        "Python",
+        "Deep Learning",
+        "AI"
+      ],
+      "github": "https://github.com/abbas2123/canser-detection-using-deep-learning.git",
+      "demo": ""
+    },
+    {
+      "id": 3,
+      "title": "Tesla & SpaceX Clones",
+      "description": "Pixel-perfect front-end clones of the Tesla and SpaceX websites, demonstrating precision in responsive styling and layouts.",
+      "image": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "github": "https://github.com/abbas2123",
+      "demo": ""
+    },
+    {
+      "id": 4,
+      "title": "User Management System",
+      "description": "A comprehensive backend and frontend system for securely managing user authentication, sessions, and roles.",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
+      "tags": [
+        "Node.js",
+        "MongoDB",
+        "Auth"
+      ],
+      "github": "https://github.com/abbas2123",
+      "demo": ""
+    }
+  ]
+}
