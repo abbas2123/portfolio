@@ -6,6 +6,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Preloader from './components/Preloader';
 import SmoothScroll from './components/SmoothScroll';
 import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
