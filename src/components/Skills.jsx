@@ -4,20 +4,20 @@ import Tilt from 'react-parallax-tilt';
 
 // Icons
 
-import { FaJava as FaJavaIcon, FaDatabase as FaDatabaseIcon, FaCode as FaCodeIcon } from 'react-icons/fa';
+import { FaJava as FaJavaIcon, FaDatabase as FaDatabaseIcon, FaCode as FaCodeIcon, FaHtml5, FaCss3Alt, FaAws } from 'react-icons/fa';
 import { 
-  SiJavascript, SiTypescript, SiHtml5, SiCss3, SiCplusplus,
+  SiJavascript, SiTypescript, SiCplusplus,
   SiReact, SiRedux, SiTailwindcss, SiBootstrap,
   SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiFirebase,
-  SiGit, SiDocker, SiAmazonwebservices, SiNginx, SiFigma, SiPostman
+  SiGit, SiDocker, SiNginx, SiFigma, SiPostman
 } from 'react-icons/si';
 
 const getIcon = (skillName) => {
   switch (skillName) {
     case 'JavaScript': return <SiJavascript color="#F7DF1E" />;
     case 'TypeScript': return <SiTypescript color="#3178C6" />;
-    case 'HTML5': return <SiHtml5 color="#E34F26" />;
-    case 'CSS3': return <SiCss3 color="#1572B6" />;
+    case 'HTML5': return <FaHtml5 color="#E34F26" />;
+    case 'CSS3': return <FaCss3Alt color="#1572B6" />;
     case 'C++': return <SiCplusplus color="#00599C" />;
     case 'Java': return <FaJavaIcon color="#b07219" />;
     case 'SQL / NoSQL': return <FaDatabaseIcon color="#336791" />;
@@ -36,7 +36,7 @@ const getIcon = (skillName) => {
     
     case 'Git': return <SiGit color="#F05032" />;
     case 'Docker': return <SiDocker color="#2496ED" />;
-    case 'AWS': return <SiAmazonwebservices color="#232F3E" />;
+    case 'AWS': return <FaAws color="#232F3E" />;
     case 'Nginx': return <SiNginx color="#009639" />;
     case 'Figma': return <SiFigma color="#F24E1E" />;
     case 'Postman': return <SiPostman color="#FF6C37" />;
