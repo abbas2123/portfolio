@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, User, MessageCircle, Mail, Phone } from 'lucide-react';
 import CodeRain from './CodeRain';
+import Magnetic from './Magnetic';
 
 const Hero = ({ personal }) => {
   const containerVariants = {
@@ -86,37 +87,39 @@ const Hero = ({ personal }) => {
             </motion.p>
             
             <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
-              <a 
-                href="#projects" 
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '1rem 2.5rem',
-                  background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
-                  color: '#fff',
-                  borderRadius: '50px',
-                  fontWeight: 600,
-                  fontSize: '1.1rem',
-                  boxShadow: '0 10px 20px rgba(139, 92, 246, 0.3)',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.boxShadow = '0 15px 25px rgba(139, 92, 246, 0.4)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 20px rgba(139, 92, 246, 0.3)';
-                }}
-              >
-                View Work <ArrowRight size={20} />
-              </a>
+              <Magnetic strength={0.3}>
+                <a 
+                  href="#projects" 
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '1rem 2.5rem',
+                    background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
+                    color: '#fff',
+                    borderRadius: '50px',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                    boxShadow: '0 10px 20px rgba(139, 92, 246, 0.3)',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 15px 25px rgba(139, 92, 246, 0.4)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 10px 20px rgba(139, 92, 246, 0.3)';
+                  }}
+                >
+                  View Work <ArrowRight size={20} />
+                </a>
+              </Magnetic>
               
               <div style={{ display: 'flex', gap: '1rem' }}>
-                {personal.socials.map((social, index) => (
+              {personal.socials.map((social, index) => (
+                <Magnetic key={index} strength={0.4}>
                   <motion.a 
-                    key={index}
                     href={social.url}
                     target="_blank"
                     rel="noreferrer"
@@ -147,7 +150,8 @@ const Hero = ({ personal }) => {
                   >
                     {getIcon(social.platform)}
                   </motion.a>
-                ))}
+                </Magnetic>
+              ))}
               </div>
             </motion.div>
           </motion.div>

@@ -6,7 +6,8 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Preloader from './components/Preloader';
+import SmoothScroll from './components/SmoothScroll';
+import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
 
@@ -22,12 +23,13 @@ function App() {
 
   return (
     <div className="app-container">
+      <CustomCursor />
       <AnimatePresence>
         {isLoading && <Preloader />}
       </AnimatePresence>
       
       {!isLoading && (
-        <>
+        <SmoothScroll>
           <Navbar personal={portfolioData.personal} />
           <main>
             <Hero personal={portfolioData.personal} />
@@ -36,7 +38,7 @@ function App() {
             <Projects projects={portfolioData.projects} />
           </main>
           <Contact personal={portfolioData.personal} />
-        </>
+        </SmoothScroll>
       )}
     </div>
   );
