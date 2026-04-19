@@ -14,7 +14,7 @@ function App() {
       <Navbar personal={portfolioData.personal} />
       <main>
         <Hero personal={portfolioData.personal} />
-        <About personal={portfolioData.personal} />
+        <About personal={portfolioData.personal} education={portfolioData.education} />
         <Skills skills={portfolioData.skills} />
         <Projects projects={portfolioData.projects} />
       </main>

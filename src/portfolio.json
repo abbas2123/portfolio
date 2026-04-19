@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Muhammed Abbas",
-    "role": "Full Stack Developer",
-    "tagline": "Master in JavaScript, Node.js, and MongoDB.",
-    "about": "I am a passionate Full Stack Developer with deep expertise in JavaScript, Node.js, and MongoDB. I pride myself on building smooth, scalable web applications, from responsive frontends to robust backend architectures.",
+    "role": "MERN Stack Developer",
+    "tagline": "Crafting polished, high-performance web applications with modern technologies.",
+    "about": "I am a dedicated MERN Stack Developer with comprehensive training from Brototype, Kochi. I specialize in bridging the gap between elegant frontend interfaces and robust backend architectures. By leveraging technologies like React, Node.js, and MongoDB, I build highly responsive and scalable digital experiences. My focus is on writing clean, efficient code and continually expanding my technical horizons to solve complex real-world problems.",
     "resumeUrl": "./CV.pdf",
     "email": "abbasakk398@gmail.com",
     "socials": [
@@ -21,44 +21,33 @@
       }
     ]
   },
-  "skills": [
+  "education": [
     {
-      "name": "JavaScript (ES6+)",
-      "level": 95
+      "period": "2023 - Present",
+      "title": "MERN Stack Development",
+      "institution": "Brototype, Kochi",
+      "description": "Intensive, hands-on training focused on full-stack web development. Mastered MongoDB, Express.js, React, and Node.js through complex, real-world project builds and rigorous architectural training."
     },
     {
-      "name": "Node.js",
-      "level": 95
-    },
-    {
-      "name": "MongoDB",
-      "level": 95
-    },
-    {
-      "name": "React",
-      "level": 85
-    },
-    {
-      "name": "Express.js",
-      "level": 95
-    },
-    {
-      "name": "HTML5 / CSS3",
-      "level": 95
+      "period": "2021 - 2023",
+      "title": "Higher Secondary Education (+2)",
+      "institution": "Kerala Board",
+      "description": "Completed core foundational studies with a strong emphasis on analytical thinking and problem-solving, setting the stage for a deep dive into software engineering."
     }
   ],
+  "skills": {
+    "Frontend": ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"],
+    "Backend": ["Node.js", "Express.js", "RESTful APIs", "JWT Auth"],
+    "Database": ["MongoDB", "Mongoose"],
+    "Tools": ["Git", "GitHub", "Postman", "Figma", "VS Code"]
+  },
   "projects": [
     {
       "id": 1,
       "title": "NexaBid",
       "description": "My main project—A highly scalable, real-time bidding and auction platform designed to handle significant user concurrency.",
       "image": "https://s3.ap-south-1.amazonaws.com/m3india-app-dev/content/card/auction-1525869934-1539767554-1582896834.jpg",
-      "tags": [
-        "Node.js",
-        "MongoDB",
-        "JavaScript",
-        "Express"
-      ],
+      "tags": ["Node.js", "MongoDB", "JavaScript", "Express"],
       "github": "https://github.com/abbas2123/NexaBid.git",
       "demo": ""
     },
@@ -67,11 +56,7 @@
       "title": "Cancer Detection using Deep Learning",
       "description": "An AI-powered mini-project that utilizes deep learning principles to detect and triage instances of skin cancer.",
       "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
-      "tags": [
-        "Python",
-        "Deep Learning",
-        "AI"
-      ],
+      "tags": ["Python", "Deep Learning", "AI"],
       "github": "https://github.com/abbas2123/canser-detection-using-deep-learning.git",
       "demo": ""
     },
@@ -80,11 +65,7 @@
       "title": "Tesla & SpaceX Clones",
       "description": "Pixel-perfect front-end clones of the Tesla and SpaceX websites, demonstrating precision in responsive styling and layouts.",
       "image": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop",
-      "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ],
+      "tags": ["HTML", "CSS", "JavaScript"],
       "github": "https://github.com/abbas2123",
       "demo": ""
     },
@@ -93,11 +74,7 @@
       "title": "User Management System",
       "description": "A comprehensive backend and frontend system for securely managing user authentication, sessions, and roles.",
       "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-      "tags": [
-        "Node.js",
-        "MongoDB",
-        "Auth"
-      ],
+      "tags": ["Node.js", "MongoDB", "Auth"],
       "github": "https://github.com/abbas2123",
       "demo": ""
     }
