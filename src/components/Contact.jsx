@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Magnetic from './Magnetic';
 
 const Contact = ({ personal }) => {
   return (
@@ -18,35 +19,37 @@ const Contact = ({ personal }) => {
 
           <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem', position: 'relative', zIndex: 1, fontFamily: 'Outfit, sans-serif' }}>Get In Touch</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem auto', position: 'relative', zIndex: 1 }}>
-            Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            {personal.contactMessage}
           </p>
           
-          <a  
-            href={`mailto:${personal.email}`}
-            style={{ 
-              display: 'inline-block', 
-              padding: '1rem 2.5rem', 
-              background: 'transparent',
-              border: '2px solid var(--accent-primary)',
-              color: 'var(--accent-primary)',
-              borderRadius: '50px', 
-              fontWeight: 600, 
-              fontSize: '1.1rem',
-              transition: 'all 0.3s ease',
-              position: 'relative',
-              zIndex: 1
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
-              e.currentTarget.style.boxShadow = 'var(--glow)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            Say Hello
-          </a>
+          <Magnetic strength={0.25}>
+            <a  
+              href={`mailto:${personal.email}`}
+              style={{ 
+                display: 'inline-block', 
+                padding: '1rem 2.5rem', 
+                background: 'transparent',
+                border: '2px solid var(--accent-primary)',
+                color: 'var(--accent-primary)',
+                borderRadius: '50px', 
+                fontWeight: 600, 
+                fontSize: '1.1rem',
+                transition: 'all 0.3s ease',
+                position: 'relative',
+                zIndex: 1
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                e.currentTarget.style.boxShadow = 'var(--glow)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              Say Hello
+            </a>
+          </Magnetic>
         </motion.div>
         
         <footer style={{ marginTop: '5rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
