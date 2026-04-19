@@ -36,10 +36,10 @@
     }
   ],
   "skills": {
-    "Frontend": ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"],
-    "Backend": ["Node.js", "Express.js", "RESTful APIs", "JWT Auth"],
-    "Database": ["MongoDB", "Mongoose"],
-    "Tools": ["Git", "GitHub", "Postman", "Figma", "VS Code"]
+    "Languages": ["JavaScript", "TypeScript", "HTML5", "CSS3", "C++", "Java", "SQL / NoSQL"],
+    "Frontend": ["React", "Redux", "Tailwind CSS", "Bootstrap", "EJS"],
+    "Backend & DB": ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase"],
+    "Tools & Cloud": ["Git", "Docker", "AWS", "Nginx", "Figma", "Postman"]
   },
   "projects": [
     {

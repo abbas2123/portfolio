@@ -1,63 +1,97 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, ExternalLink } from 'lucide-react';
+import Tilt from 'react-parallax-tilt';
 
 const Projects = ({ projects }) => {
   return (
-    <section id="projects">
-      <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+    <section id="projects" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: '10%', right: '5%', width: '400px', height: '400px', background: 'var(--accent-primary)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.1, zIndex: 0 }}></div>
+      
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Featured Work
+        </motion.h2>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
           {projects.map((project, index) => (
-            <motion.div 
+            <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel"
-              style={{ borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
-              whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(0,0,0,0.4)', borderColor: 'var(--accent-primary)' }}
+              transition={{ duration: 0.6, delay: index * 0.15, type: 'spring', bounce: 0.3 }}
+              style={{ display: 'flex' }}
             >
-              <div style={{ width: '100%', height: '200px', overflow: 'hidden', position: 'relative' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'var(--accent-primary)', opacity: 0.2, zIndex: 1, mixBlendMode: 'overlay', pointerEvents: 'none' }}></div>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                  onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                  onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                />
-              </div>
-              
-              <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>{project.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: 1.6, flexGrow: 1 }}>
-                  {project.description}
-                </p>
-                
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '2rem' }}>
-                  {project.tags.map(tag => (
-                    <span key={tag} style={{ fontSize: '0.85rem', color: 'var(--accent-secondary)', background: 'rgba(59, 130, 246, 0.1)', padding: '0.4rem 0.8rem', borderRadius: '50px', fontWeight: 500 }}>
-                      {tag}
-                    </span>
-                  ))}
+              <Tilt tiltMaxAngleX={6} tiltMaxAngleY={6} scale={1.02} transitionSpeed={2000} style={{ width: '100%' }}>
+                <div 
+                  className="glass-panel" 
+                  style={{ 
+                    overflow: 'hidden', 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    height: '100%',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    transition: 'border-color 0.4s ease, box-shadow 0.4s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.5)';
+                    e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(139, 92, 246, 0.2)';
+                  }}
+                  onMouseOut={(e) => {
+                     e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+                     e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.4)';
+                  }}
+                >
+                  <div style={{ height: '220px', overflow: 'hidden', position: 'relative' }}>
+                    <motion.div
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      style={{ width: '100%', height: '100%' }}
+                    >
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </motion.div>
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-secondary) 5%, transparent 100%)', opacity: 0.9 }}></div>
+                  </div>
+                  
+                  <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', position: 'relative', marginTop: '-20px' }}>
+                    <h3 style={{ fontSize: '1.6rem', marginBottom: '0.5rem', fontFamily: 'Outfit, sans-serif' }}>{project.title}</h3>
+                    <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>{project.description}</p>
+                    
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.5rem' }}>
+                      {project.tags.map((tag, i) => (
+                         <span key={i} style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: 'rgba(139, 92, 246, 0.1)', color: 'var(--accent-secondary)', borderRadius: '20px', fontWeight: 500, letterSpacing: '0.5px' }}>
+                           {tag}
+                         </span>
+                      ))}
+                    </div>
+                    
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
+                      {project.github && (
+                        <a href={project.github} target="_blank" rel="noreferrer" className="btn-secondary" style={{ flex: 1, textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '0.6rem' }}>
+                          <Code size={18} /> Code
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a href={project.demo} target="_blank" rel="noreferrer" style={{ flex: 1, textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '0.6rem', background: 'var(--accent-primary)', color: '#fff', borderRadius: '8px', fontWeight: 600 }}>
+                          <ExternalLink size={18} /> Live Demo
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                
-                <div style={{ display: 'flex', gap: '1.2rem', marginTop: 'auto' }}>
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
-                      <Code size={20} /> Code
-                    </a>
-                  )}
-                  {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noreferrer" style={{ color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent-primary)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-primary)'}>
-                      <ExternalLink size={20} /> Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
+              </Tilt>
             </motion.div>
           ))}
         </div>
