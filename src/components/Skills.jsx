@@ -1,9 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 
 // Icons
-
 import { FaJava as FaJavaIcon, FaDatabase as FaDatabaseIcon, FaCode as FaCodeIcon, FaHtml5, FaCss3Alt, FaAws } from 'react-icons/fa';
 import { 
   SiJavascript, SiTypescript, SiCplusplus,
@@ -21,124 +20,157 @@ const getIcon = (skillName) => {
     case 'C++': return <SiCplusplus color="#00599C" />;
     case 'Java': return <FaJavaIcon color="#b07219" />;
     case 'SQL / NoSQL': return <FaDatabaseIcon color="#336791" />;
-    
     case 'React': return <SiReact color="#61DAFB" />;
     case 'Redux': return <SiRedux color="#764ABC" />;
     case 'Tailwind CSS': return <SiTailwindcss color="#06B6D4" />;
     case 'Bootstrap': return <SiBootstrap color="#7952B3" />;
     case 'EJS': return <FaCodeIcon color="#a1cf36" />;
-    
     case 'Node.js': return <SiNodedotjs color="#339933" />;
     case 'Express.js': return <SiExpress color="#FFF" />;
     case 'MongoDB': return <SiMongodb color="#47A248" />;
     case 'PostgreSQL': return <SiPostgresql color="#336791" />;
     case 'Firebase': return <SiFirebase color="#FFCA28" />;
-    
     case 'Git': return <SiGit color="#F05032" />;
     case 'Docker': return <SiDocker color="#2496ED" />;
     case 'AWS': return <FaAws color="#232F3E" />;
     case 'Nginx': return <SiNginx color="#009639" />;
     case 'Figma': return <SiFigma color="#F24E1E" />;
     case 'Postman': return <SiPostman color="#FF6C37" />;
-    
     default: return <div style={{width: 8, height: 8, borderRadius: '50%', background: 'currentColor'}} />;
   }
 };
 
-const Skills = ({ skills }) => {
-  const categories = Object.keys(skills);
+const BentoCard = ({ category, items, index, color }) => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function onMouseMove({ currentTarget, clientX, clientY }) {
+    let { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  // Bento Sizes (index based)
+  const isLarge = index === 0 || index === 1;
 
   return (
-    <section id="skills" style={{ position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--accent-tertiary)', filter: 'blur(150px)', borderRadius: '50%', opacity: 0.15, zIndex: 0 }}></div>
-      <div style={{ position: 'absolute', bottom: '0', right: '0', width: '400px', height: '400px', background: 'var(--accent-primary)', filter: 'blur(250px)', borderRadius: '50%', opacity: 0.1, zIndex: 0 }}></div>
-      
-      <div className="container" style={{ position: 'relative', zIndex: 1, padding: '4rem 1rem' }}>
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 30 }}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onMouseMove={onMouseMove}
+      style={{
+        gridColumn: isLarge ? 'span 2' : 'span 1',
+        position: 'relative',
+        borderRadius: '24px',
+        background: 'rgba(255, 255, 255, 0.02)',
+        border: '1px solid rgba(255, 255, 255, 0.05)',
+        overflow: 'hidden',
+        height: '100%',
+        minHeight: '260px',
+        padding: '2.5rem',
+        cursor: 'default',
+        group: 'hover'
+      }}
+    >
+      {/* Interactive Glow Background */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: `radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${color}15, transparent 80%)`,
+          zIndex: 0
+        }}
+      />
+
+      <div style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem' }}>
+          <div style={{ 
+            width: '12px', height: '12px', borderRadius: '3px', 
+            background: color, boxShadow: `0 0 15px ${color}`, 
+            marginRight: '15px' 
+          }} />
+          <h3 style={{ fontSize: '1.4rem', color: '#fff', fontWeight: 700, fontFamily: 'Outfit, sans-serif' }}>
+            {category}
+          </h3>
+        </div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', alignContent: 'flex-start' }}>
+          {items.map((item, idx) => (
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05, borderColor: color }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                background: 'rgba(255,255,255,0.03)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                padding: '0.6rem 1.2rem',
+                borderRadius: '12px',
+                color: '#fff',
+                fontSize: '0.95rem',
+                fontWeight: 500,
+                transition: 'border-color 0.3s ease'
+              }}
+            >
+              <span style={{ fontSize: '1.2rem', display: 'flex' }}>{getIcon(item)}</span>
+              {item}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const Skills = ({ skills }) => {
+  const categories = Object.keys(skills);
+  const colors = [
+    '#8B5CF6', // Languages (Purple)
+    '#3B82F6', // Frontend (Blue)
+    '#10B981', // Backend (Emerald)
+    '#F59E0B'  // Tools (Orange)
+  ];
+
+  return (
+    <section id="skills" style={{ position: 'relative', overflow: 'hidden', padding: '100px 0' }}>
+      {/* Dynamic Ambient Backgrounds */}
+      <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '500px', height: '500px', background: 'var(--accent-primary)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.1 }} />
+      <div style={{ position: 'absolute', bottom: '10%', left: '-10%', width: '500px', height: '500px', background: 'var(--accent-secondary)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.1 }} />
+
+      <div className="container">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          style={{ marginBottom: '4rem', textAlign: 'center' }}
         >
-          Technical Arsenal
-        </motion.h2>
+          <h2 className="section-title" style={{ marginBottom: '1rem' }}>Technical Arsenal</h2>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>
+            A curated list of my expertise in building robust, performant web applications.
+          </p>
+        </motion.div>
         
-        {/* Responsive Grid for Categories exactly like screenshot */}
+        {/* Bento Grid Layout */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridAutoFlow: 'dense',
           gap: '1.5rem', 
           maxWidth: '1200px', 
           margin: '0 auto' 
         }}>
           {categories.map((category, index) => (
-            <motion.div 
-              key={category}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.15, type: "spring", bounce: 0.4 }}
-            >
-              <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.02} transitionSpeed={2000} className="tilt-element">
-                <div 
-                  style={{ 
-                    padding: '2rem 1.5rem', 
-                    borderRadius: '16px',
-                    background: 'var(--bg-secondary)',
-                    border: '1px solid rgba(255,255,255,0.05)',
-                    height: '100%',
-                    boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-                    transition: 'border-color 0.4s ease',
-                  }}
-                  className="skill-card-container"
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.8rem' }}>
-                    {/* Glowing vertical bar */}
-                    <div style={{ 
-                      width: '4px', 
-                      height: '24px', 
-                      borderRadius: '4px', 
-                      background: 'linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary))',
-                      boxShadow: '0 0 10px var(--accent-secondary)',
-                      marginRight: '12px'
-                    }}></div>
-                    <h3 style={{ fontSize: '1.3rem', color: '#fff', fontWeight: 600, letterSpacing: '0.5px' }}>
-                      {category}
-                    </h3>
-                  </div>
-                  
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                    {skills[category].map((skill, idx) => (
-                      <motion.div 
-                        key={idx}
-                        whileHover={{ y: -3, scale: 1.05 }}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          background: 'rgba(255,255,255,0.03)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          padding: '0.5rem 1rem',
-                          borderRadius: '10px',
-                          color: '#dedede',
-                          fontSize: '0.95rem',
-                          fontWeight: 500,
-                          cursor: 'pointer',
-                          transition: 'background 0.3s ease, border-color 0.3s ease'
-                        }}
-                        className="skill-pill"
-                      >
-                        <span style={{ display: 'flex', alignItems: 'center', fontSize: '1.1rem' }}>
-                          {getIcon(skill)}
-                        </span>
-                        {skill}
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </Tilt>
-            </motion.div>
+            <BentoCard 
+              key={category} 
+              category={category} 
+              items={skills[category]} 
+              index={index}
+              color={colors[index % colors.length]}
+            />
           ))}
         </div>
       </div>
