@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   SiJavascript, SiReact, SiNodedotjs, SiMongodb, 
-  SiTailwindcss, SiTypescript, SiHtml5, SiCss3, SiDocker, SiGit
+  SiTailwindcss, SiTypescript, SiDocker, SiGit
 } from 'react-icons/si';
-import { FaJava, FaDatabase, FaCode } from 'react-icons/fa';
+import { FaJava, FaDatabase, FaCode, FaHtml5, FaCss3Alt } from 'react-icons/fa';
 
 const icons = [
   <SiJavascript />, <SiReact />, <SiNodedotjs />, <SiMongodb />,
-  <SiTailwindcss />, <SiTypescript />, <SiHtml5 />, <SiCss3 />,
+  <SiTailwindcss />, <SiTypescript />, <FaHtml5 />, <FaCss3Alt />,
   <FaJava />, <FaDatabase />, <FaCode />, <SiDocker />, <SiGit />,
   '< / >', '{ }', '=>', '[ ]', '++', '&&', '||', '()'
 ];
