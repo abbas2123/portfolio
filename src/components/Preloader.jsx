@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const messages = [
+  "INITIALIZING MERN SYSTEM...",
+  "LOADING CORE MODULES...",
+  "SYNCING PROJECT DATA...",
+  "COMPILE SUCCESSFUL",
+  "IDENTITY VERIFIED",
+  "WELCOME MUHAMMED ABBAS"
+];
+
 const Preloader = () => {
+  const [msgIndex, setMsgIndex] = useState(0);
+
+  useEffect(() => {
+    if (msgIndex < messages.length - 1) {
+      const timer = setTimeout(() => setMsgIndex(msgIndex + 1), 400);
+      return () => clearTimeout(timer);
+    }
+  }, [msgIndex]);
+
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      exit={{ 
-        y: '-100%',
-        transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
-      }}
       style={{
         position: 'fixed',
         inset: 0,
@@ -18,115 +31,141 @@ const Preloader = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        color: '#fff'
       }}
     >
-      {/* Background Glow */}
-      <motion.div
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        style={{
-          position: 'absolute',
-          width: '400px',
-          height: '400px',
-          background: 'var(--accent-primary)',
-          filter: 'blur(150px)',
-          borderRadius: '50%',
-          zIndex: 0
-        }}
-      />
+      {/* Background Grid for Tech Feel */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(139, 92, 246, 0.05) 1px, transparent 0)',
+        backgroundSize: '40px 40px',
+        opacity: 0.5
+      }} />
 
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-        {/* Profile Image Pulse */}
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ marginBottom: '2rem' }}
-        >
-          <div style={{
-            width: '120px',
-            height: '120px',
-            borderRadius: '50%',
-            border: '3px solid var(--accent-primary)',
-            padding: '5px',
-            background: 'var(--bg-primary)',
-            margin: '0 auto',
-            overflow: 'hidden',
-            boxShadow: '0 0 30px var(--accent-primary)'
-          }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.3 } }}
+        style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}
+      >
+        {/* Central Visual Complex */}
+        <div style={{ position: 'relative', width: '200px', height: '200px', margin: '0 auto 3rem auto' }}>
+          
+          {/* Spinning Outer Rings */}
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+              transition={{ duration: 3 + i, repeat: Infinity, ease: "linear" }}
+              style={{
+                position: 'absolute',
+                inset: i * 15,
+                borderRadius: '50%',
+                border: `1px solid ${i === 0 ? 'var(--accent-primary)' : 'rgba(139, 92, 246, 0.2)'}`,
+                borderTopColor: 'transparent',
+                borderBottomColor: 'transparent'
+              }}
+            />
+          ))}
+
+          {/* Profile Circle with Scanline */}
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "backOut" }}
+            style={{
+              position: 'absolute',
+              inset: 45,
+              borderRadius: '50%',
+              border: '3px solid var(--accent-primary)',
+              padding: '6px',
+              background: 'var(--bg-primary)',
+              overflow: 'hidden',
+              boxShadow: '0 0 40px rgba(139, 92, 246, 0.4)'
+            }}
+          >
             <img 
               src="./profile.jpg" 
               alt="Muhammed Abbas" 
               style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
             />
-          </div>
-        </motion.div>
-
-        {/* Name Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        >
-          <h1 style={{ 
-            fontSize: '2.5rem', 
-            fontFamily: 'Outfit, sans-serif', 
-            fontWeight: 700,
-            letterSpacing: '2px',
-            marginBottom: '0.5rem'
-          }}>
-            MUHAMMED <span className="text-gradient">ABBAS</span>
-          </h1>
-          
-          <div style={{ 
-            width: '0%', 
-            height: '2px', 
-            background: 'linear-gradient(to right, transparent, var(--accent-primary), transparent)', 
-            margin: '1rem auto'
-          }}>
-            <motion.div 
-              animate={{ width: '100%' }}
-              transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
-              style={{ height: '100%', background: 'inherit' }}
+            {/* Scanline Animation */}
+            <motion.div
+              animate={{ top: ['-10%', '110%'] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+              style={{
+                position: 'absolute',
+                left: 0,
+                width: '100%',
+                height: '2px',
+                background: 'rgba(139, 92, 246, 0.8)',
+                boxShadow: '0 0 10px var(--accent-primary)',
+                zIndex: 3
+              }}
             />
-          </div>
+          </motion.div>
+        </div>
 
-          <motion.p
+        {/* Text Area */}
+        <div style={{ minHeight: '120px' }}>
+          <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
             style={{ 
-              color: 'var(--text-secondary)', 
-              fontSize: '1rem', 
-              textTransform: 'uppercase', 
-              letterSpacing: '4px' 
+              fontSize: '2rem', 
+              fontFamily: 'Outfit, sans-serif', 
+              fontWeight: 800,
+              letterSpacing: '5px',
+              marginBottom: '1rem',
+              textTransform: 'uppercase'
             }}
           >
-            Developing Excellence
-          </motion.p>
-        </motion.div>
-      </div>
+            MUHAMMED <span className="text-gradient">ABBAS</span>
+          </motion.h1>
 
-      {/* Modern Wave Reveal Elements */}
-      <motion.div
-        initial={{ y: '100%' }}
-        animate={{ y: '100%' }}
-        exit={{ y: '0%' }}
-        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'var(--accent-primary)',
-          zIndex: 2
-        }}
-      />
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={msgIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              style={{ 
+                color: 'var(--accent-secondary)', 
+                fontSize: '0.85rem', 
+                fontFamily: 'monospace',
+                letterSpacing: '2px'
+              }}
+            >
+              {`> ${messages[msgIndex]}`}
+            </motion.p>
+          </AnimatePresence>
+        </div>
+      </motion.div>
+
+      {/* Shutter Exit Panels */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ x: '-100%' }}
+          exit={{ 
+            x: '100%',
+            transition: { duration: 0.8, delay: i * 0.1, ease: [0.76, 0, 0.24, 1] } 
+          }}
+          style={{
+            position: 'absolute',
+            top: `${i * 20}%`,
+            left: 0,
+            width: '100%',
+            height: '20%',
+            background: i % 2 === 0 ? 'var(--bg-primary)' : 'var(--bg-secondary)',
+            zIndex: 10,
+            borderBottom: '1px solid rgba(255,255,255,0.02)'
+          }}
+        />
+      ))}
     </motion.div>
   );
 };
