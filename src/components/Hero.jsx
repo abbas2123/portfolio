@@ -36,14 +36,7 @@ const Hero = ({ personal }) => {
   };
 
   return (
-    <section id="hero" style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      alignItems: 'center', 
-      position: 'relative',
-      overflow: 'hidden',
-      paddingTop: '80px' // for navbar
-    }}>
+    <section id="hero" className="hero-section">
       {/* Code Rain Background */}
       <CodeRain />
 
@@ -51,58 +44,46 @@ const Hero = ({ personal }) => {
       <motion.div 
         animate={{ y: [0, -30, 0], x: [0, 20, 0] }} 
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        style={{ position: 'absolute', top: '20%', left: '10%', width: '300px', height: '300px', background: 'var(--accent-primary)', filter: 'blur(150px)', borderRadius: '50%', opacity: 0.15, zIndex: 0 }}
+        className="hero-orb hero-orb-1"
       />
       <motion.div 
         animate={{ y: [0, 50, 0], x: [0, -40, 0] }} 
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        style={{ position: 'absolute', bottom: '10%', right: '5%', width: '400px', height: '400px', background: 'var(--accent-secondary)', filter: 'blur(200px)', borderRadius: '50%', opacity: 0.15, zIndex: 0 }}
+        className="hero-orb hero-orb-2"
       />
       
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '4rem' }}>
+        <div className="hero-layout">
           
           {/* Left Text Column */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            style={{ flex: '1 1 500px', maxWidth: '700px' }}
+            className="hero-text"
           >
-            <motion.p variants={itemVariants} style={{ color: 'var(--accent-secondary)', fontWeight: 600, letterSpacing: '2px', marginBottom: '1rem', textTransform: 'uppercase' }}>
+            <motion.p variants={itemVariants} className="hero-subtitle">
               Welcome to my universe
             </motion.p>
             
-            <motion.h1 variants={itemVariants} style={{ fontSize: 'clamp(3rem, 5vw, 5rem)', lineHeight: 1.1, marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif' }}>
+            <motion.h1 variants={itemVariants} className="hero-heading">
               I am <br/>
               <span className="text-gradient">{personal.name}</span>
             </motion.h1>
             
-            <motion.h2 variants={itemVariants} style={{ fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', color: 'var(--text-primary)', marginBottom: '1.5rem', fontWeight: 400 }}>
+            <motion.h2 variants={itemVariants} className="hero-role">
               {personal.role}
             </motion.h2>
             
-            <motion.p variants={itemVariants} style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '2.5rem', maxWidth: '600px', lineHeight: 1.6 }}>
+            <motion.p variants={itemVariants} className="hero-tagline">
               {personal.tagline}
             </motion.p>
             
-            <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <motion.div variants={itemVariants} className="hero-actions">
               <Magnetic strength={0.3}>
                 <a 
                   href="#projects" 
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    padding: '1rem 2.5rem',
-                    background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
-                    color: '#fff',
-                    borderRadius: '50px',
-                    fontWeight: 600,
-                    fontSize: '1.1rem',
-                    boxShadow: '0 10px 20px rgba(139, 92, 246, 0.3)',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                  }}
+                  className="hero-cta"
                   onMouseOver={(e) => {
                     e.currentTarget.style.transform = 'translateY(-3px)';
                     e.currentTarget.style.boxShadow = '0 15px 25px rgba(139, 92, 246, 0.4)';
@@ -116,7 +97,7 @@ const Hero = ({ personal }) => {
                 </a>
               </Magnetic>
               
-              <div style={{ display: 'flex', gap: '1rem' }}>
+              <div className="hero-socials">
               {personal.socials.map((social, index) => (
                 <Magnetic key={index} strength={0.4}>
                   <motion.a 
@@ -125,18 +106,7 @@ const Hero = ({ personal }) => {
                     rel="noreferrer"
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    style={{
-                      width: '50px',
-                      height: '50px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      borderRadius: '50%',
-                      color: 'var(--text-primary)',
-                      transition: 'all 0.3s ease'
-                    }}
+                    className="hero-social-icon"
                     onMouseOver={(e) => {
                       e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
                       e.currentTarget.style.borderColor = 'var(--accent-primary)';
@@ -161,17 +131,9 @@ const Hero = ({ personal }) => {
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4, delay: 0.4 }}
-            style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}
+            className="hero-image-wrapper"
           >
-            <div style={{
-              position: 'relative',
-              width: 'clamp(300px, 100%, 450px)',
-              aspectRatio: '1/1',
-              borderRadius: '50%',
-              padding: '10px',
-              background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
-              boxShadow: '0 25px 50px -12px rgba(139, 92, 246, 0.4)'
-            }}>
+            <div className="hero-image-container">
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -199,6 +161,251 @@ const Hero = ({ personal }) => {
 
         </div>
       </div>
+
+      <style>{`
+        .hero-section {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          position: relative;
+          overflow: hidden;
+          padding-top: 80px;
+        }
+
+        .hero-orb {
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.15;
+          z-index: 0;
+        }
+
+        .hero-orb-1 {
+          top: 20%;
+          left: 10%;
+          width: 300px;
+          height: 300px;
+          background: var(--accent-primary);
+          filter: blur(150px);
+        }
+
+        .hero-orb-2 {
+          bottom: 10%;
+          right: 5%;
+          width: 400px;
+          height: 400px;
+          background: var(--accent-secondary);
+          filter: blur(200px);
+        }
+
+        .hero-layout {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 4rem;
+        }
+
+        .hero-text {
+          flex: 1 1 500px;
+          max-width: 700px;
+        }
+
+        .hero-subtitle {
+          color: var(--accent-secondary);
+          font-weight: 600;
+          letter-spacing: 2px;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          font-size: 1rem;
+        }
+
+        .hero-heading {
+          font-size: clamp(2.5rem, 5vw, 5rem);
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+          font-family: Outfit, sans-serif;
+        }
+
+        .hero-role {
+          font-size: clamp(1.2rem, 3vw, 2.5rem);
+          color: var(--text-primary);
+          margin-bottom: 1.5rem;
+          font-weight: 400;
+        }
+
+        .hero-tagline {
+          font-size: 1.2rem;
+          color: var(--text-secondary);
+          margin-bottom: 2.5rem;
+          max-width: 600px;
+          line-height: 1.6;
+        }
+
+        .hero-actions {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+
+        .hero-cta {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 1rem 2.5rem;
+          background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+          color: #fff;
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 1.1rem;
+          box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-socials {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .hero-social-icon {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 50%;
+          color: var(--text-primary);
+          transition: all 0.3s ease;
+        }
+
+        .hero-image-wrapper {
+          flex: 1 1 400px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .hero-image-container {
+          position: relative;
+          width: clamp(250px, 80%, 450px);
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          padding: 10px;
+          background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+          box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .hero-layout {
+            gap: 3rem;
+          }
+
+          .hero-text {
+            flex: 1 1 400px;
+          }
+
+          .hero-image-wrapper {
+            flex: 1 1 300px;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+          .hero-section {
+            padding-top: 70px;
+            min-height: auto;
+            padding-bottom: 60px;
+          }
+
+          .hero-layout {
+            flex-direction: column-reverse;
+            gap: 2.5rem;
+            text-align: center;
+            align-items: center;
+          }
+
+          .hero-text {
+            flex: 1 1 auto;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .hero-image-wrapper {
+            flex: 0 0 auto;
+          }
+
+          .hero-image-container {
+            width: min(250px, 65vw);
+          }
+
+          .hero-tagline {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+          }
+
+          .hero-actions {
+            justify-content: center;
+          }
+
+          .hero-cta {
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+          }
+
+          .hero-social-icon {
+            width: 44px;
+            height: 44px;
+          }
+
+          .hero-orb-1 {
+            width: 200px;
+            height: 200px;
+          }
+
+          .hero-orb-2 {
+            width: 250px;
+            height: 250px;
+          }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+          .hero-section {
+            padding-top: 60px;
+          }
+
+          .hero-image-container {
+            width: min(200px, 55vw);
+          }
+
+          .hero-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+          }
+
+          .hero-tagline {
+            font-size: 0.95rem;
+          }
+
+          .hero-cta {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+          }
+
+          .hero-social-icon {
+            width: 40px;
+            height: 40px;
+          }
+
+          .hero-socials {
+            gap: 0.7rem;
+          }
+        }
+      `}</style>
     </section>
   );
 };

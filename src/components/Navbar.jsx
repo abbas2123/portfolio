@@ -78,10 +78,13 @@ const Navbar = ({ personal }) => {
           >
             <div style={{ display: 'flex', flexDirection: 'column', padding: '2rem', gap: '1.5rem', alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <span key={link} onClick={() => scrollTo(link)} style={{ fontSize: '1.2rem', fontWeight: 500 }}>
+                <span key={link} onClick={() => scrollTo(link)} style={{ fontSize: '1.2rem', fontWeight: 500, cursor: 'pointer' }}>
                   {link}
                 </span>
               ))}
+              <a href={personal.resumeUrl} target="_blank" rel="noreferrer" style={{ padding: '0.5rem 1.2rem', background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))', borderRadius: '50px', fontWeight: 600, color: '#fff' }}>
+                Resume
+              </a>
             </div>
           </motion.div>
         )}

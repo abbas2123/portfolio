@@ -7,7 +7,7 @@ const About = ({ personal, education }) => {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', justifyContent: 'space-between' }}>
+        <div className="about-layout">
           
           {/* Bio Section */}
           <motion.div 
@@ -15,12 +15,12 @@ const About = ({ personal, education }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            style={{ flex: '1 1 500px' }}
+            className="about-bio"
           >
-            <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif' }}>
+            <h3 className="about-bio-heading">
               Hi, I'm <span className="text-gradient">{personal.name}</span>
             </h3>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2rem' }}>
+            <p className="about-bio-text">
               {personal.about}
             </p>
             
@@ -28,16 +28,7 @@ const About = ({ personal, education }) => {
               href={personal.resumeUrl} 
               target="_blank" 
               rel="noreferrer"
-              style={{ 
-                display: 'inline-block',
-                padding: '0.8rem 2rem',
-                background: 'linear-gradient(to right, var(--accent-primary), var(--accent-secondary))',
-                borderRadius: '50px',
-                color: '#fff',
-                fontWeight: 600,
-                boxShadow: 'var(--glow)',
-                transition: 'transform var(--transition-fast)'
-              }}
+              className="about-cv-btn"
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
@@ -51,22 +42,22 @@ const About = ({ personal, education }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '2rem' }}
+            className="about-education"
           >
-            <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', fontFamily: 'Outfit, sans-serif', color: 'var(--text-primary)' }}>Education & Experience</h3>
+            <h3 className="about-edu-heading">Education & Experience</h3>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', borderLeft: '2px solid var(--accent-primary)', paddingLeft: '1.5rem', position: 'relative' }}>
+            <div className="about-timeline">
               {education.map((item, idx) => (
-                <div key={idx} style={{ position: 'relative' }}>
+                <div key={idx} className="about-timeline-item">
                   {/* Timeline Dot */}
-                  <div style={{ position: 'absolute', left: '-29px', top: '0', width: '16px', height: '16px', borderRadius: '50%', background: 'var(--bg-secondary)', border: '4px solid var(--accent-primary)' }}></div>
+                  <div className="about-timeline-dot"></div>
                   
-                  <span style={{ fontSize: '0.9rem', color: 'var(--accent-secondary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  <span className="about-timeline-period">
                     {item.period}
                   </span>
-                  <h4 style={{ fontSize: '1.3rem', marginTop: '0.5rem', marginBottom: '0.2rem', color: 'var(--text-primary)' }}>{item.title}</h4>
-                  <h5 style={{ fontSize: '1rem', color: 'var(--text-muted)', fontWeight: 500, marginBottom: '0.8rem' }}>{item.institution}</h5>
-                  <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.95rem' }}>
+                  <h4 className="about-timeline-title">{item.title}</h4>
+                  <h5 className="about-timeline-institution">{item.institution}</h5>
+                  <p className="about-timeline-desc">
                     {item.description}
                   </p>
                 </div>
@@ -76,6 +67,203 @@ const About = ({ personal, education }) => {
 
         </div>
       </div>
+
+      <style>{`
+        .about-layout {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 4rem;
+          justify-content: space-between;
+        }
+
+        .about-bio {
+          flex: 1 1 500px;
+        }
+
+        .about-bio-heading {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+          font-family: Outfit, sans-serif;
+        }
+
+        .about-bio-text {
+          font-size: 1.1rem;
+          color: var(--text-secondary);
+          line-height: 1.8;
+          margin-bottom: 2rem;
+        }
+
+        .about-cv-btn {
+          display: inline-block;
+          padding: 0.8rem 2rem;
+          background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+          border-radius: 50px;
+          color: #fff;
+          font-weight: 600;
+          box-shadow: var(--glow);
+          transition: transform var(--transition-fast);
+        }
+
+        .about-education {
+          flex: 1 1 400px;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .about-edu-heading {
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+          font-family: Outfit, sans-serif;
+          color: var(--text-primary);
+        }
+
+        .about-timeline {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          border-left: 2px solid var(--accent-primary);
+          padding-left: 1.5rem;
+          position: relative;
+        }
+
+        .about-timeline-item {
+          position: relative;
+        }
+
+        .about-timeline-dot {
+          position: absolute;
+          left: -29px;
+          top: 0;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: var(--bg-secondary);
+          border: 4px solid var(--accent-primary);
+        }
+
+        .about-timeline-period {
+          font-size: 0.9rem;
+          color: var(--accent-secondary);
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .about-timeline-title {
+          font-size: 1.3rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.2rem;
+          color: var(--text-primary);
+        }
+
+        .about-timeline-institution {
+          font-size: 1rem;
+          color: var(--text-muted);
+          font-weight: 500;
+          margin-bottom: 0.8rem;
+        }
+
+        .about-timeline-desc {
+          color: var(--text-secondary);
+          line-height: 1.6;
+          font-size: 0.95rem;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .about-layout {
+            gap: 3rem;
+          }
+
+          .about-bio {
+            flex: 1 1 100%;
+          }
+
+          .about-education {
+            flex: 1 1 100%;
+          }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+          .about-layout {
+            flex-direction: column;
+            gap: 2.5rem;
+          }
+
+          .about-bio-heading {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+
+          .about-bio-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+          }
+
+          .about-edu-heading {
+            font-size: 1.5rem;
+          }
+
+          .about-timeline-title {
+            font-size: 1.15rem;
+          }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+          .about-layout {
+            gap: 2rem;
+          }
+
+          .about-bio-heading {
+            font-size: 1.4rem;
+          }
+
+          .about-bio-text {
+            font-size: 0.95rem;
+          }
+
+          .about-cv-btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.95rem;
+          }
+
+          .about-edu-heading {
+            font-size: 1.3rem;
+          }
+
+          .about-timeline {
+            padding-left: 1.2rem;
+            gap: 1.5rem;
+          }
+
+          .about-timeline-dot {
+            left: -24px;
+            width: 12px;
+            height: 12px;
+            border-width: 3px;
+          }
+
+          .about-timeline-period {
+            font-size: 0.8rem;
+          }
+
+          .about-timeline-title {
+            font-size: 1.05rem;
+          }
+
+          .about-timeline-institution {
+            font-size: 0.9rem;
+          }
+
+          .about-timeline-desc {
+            font-size: 0.9rem;
+          }
+        }
+      `}</style>
     </section>
   );
 };
