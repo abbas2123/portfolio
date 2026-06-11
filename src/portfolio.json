@@ -45,15 +45,10 @@
       "HTML5",
       "CSS3",
       "Java",
-      "C++"
+      "C++",
+      "SQL / NoSQL"
     ],
-    "Frontend": [
-      "React.js",
-      "Redux",
-      "Tailwind CSS",
-      "Bootstrap",
-      "EJS"
-    ],
+    "Frontend": ["React.js", "Redux", "Tailwind CSS", "Bootstrap", "EJS"],
     "Backend": [
       "Node.js",
       "Express.js",
@@ -61,11 +56,7 @@
       "JWT Authentication",
       "Socket.io"
     ],
-    "Databases": [
-      "MongoDB",
-      "PostgreSQL",
-      "Firebase"
-    ],
+    "Databases": ["MongoDB", "PostgreSQL", "Firebase"],
     "Tools & Cloud": [
       "Git",
       "GitHub",
@@ -81,14 +72,7 @@
       "role": "Software Developer Intern",
       "company": "Zacser Technologies",
       "duration": "May 2026 - Present",
-      "tech": [
-        "React.js",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-        "Git",
-        "GitHub"
-      ],
+      "tech": ["React.js", "TypeScript", "Node.js", "MongoDB", "Git", "GitHub"],
       "description": [
         "Contributing to Dharmarpan Unity, a live production web application serving real users.",
         "Developing responsive frontend modules using React.js and TypeScript.",
@@ -105,13 +89,7 @@
       "title": "Dharmarpan Unity",
       "description": "A live production platform currently under active development, featuring responsive interfaces, QR-based workflows, API integrations, and real-world business processes.",
       "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
-      "tags": [
-        "React.js",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-        "REST API"
-      ],
+      "tags": ["React.js", "TypeScript", "Node.js", "MongoDB", "REST API"],
       "github": "",
       "demo": "https://www.dharmarpanunity.com/"
     },
@@ -136,13 +114,7 @@
       "title": "AI-Based Skin Disease Detection System",
       "description": "A full-stack MERN application integrated with a Python-based machine learning model for skin disease prediction from uploaded images.",
       "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
-      "tags": [
-        "React.js",
-        "Node.js",
-        "MongoDB",
-        "Python",
-        "Machine Learning"
-      ],
+      "tags": ["React.js", "Node.js", "MongoDB", "Python", "Machine Learning"],
       "github": "https://github.com/abbas2123/canser-detection-using-deep-learning.git",
       "demo": ""
     },
@@ -151,12 +123,7 @@
       "title": "User Management System",
       "description": "A secure user management application with authentication, authorization, session handling, and role-based access control.",
       "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-      "tags": [
-        "Node.js",
-        "MongoDB",
-        "JWT",
-        "Authentication"
-      ],
+      "tags": ["Node.js", "MongoDB", "JWT", "Authentication"],
       "github": "https://github.com/abbas2123",
       "demo": ""
     }
