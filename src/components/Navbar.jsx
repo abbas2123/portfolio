@@ -14,7 +14,7 @@ const Navbar = ({ personal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['About', 'Skills', 'Projects', 'Contact'];
+  const navLinks = ['About', 'Experience', 'Skills', 'Projects', 'Contact'];
 
   const scrollTo = (id) => {
     const el = document.getElementById(id.toLowerCase());
@@ -25,7 +25,7 @@ const Navbar = ({ personal }) => {
   };
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -43,7 +43,7 @@ const Navbar = ({ personal }) => {
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        
+
         {/* LOGO */}
         <div style={{ fontSize: '1.5rem', fontWeight: 700, cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span className="text-gradient">&lt;{personal.name.split(' ')[0]} /&gt;</span>
@@ -70,7 +70,7 @@ const Navbar = ({ personal }) => {
       {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

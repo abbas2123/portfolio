@@ -1,12 +1,14 @@
 {
   "personal": {
     "name": "Muhammed Abbas",
-    "role": "MERN Stack Developer",
-    "tagline": "Crafting polished, high-performance web applications with modern technologies.",
-    "about": "I am a dedicated MERN Stack Developer with comprehensive training from Brototype, Kochi. I specialize in bridging the gap between elegant frontend interfaces and robust backend architectures. By leveraging technologies like React, Node.js, and MongoDB, I build highly responsive and scalable digital experiences. My focus is on writing clean, efficient code and continually expanding my technical horizons to solve complex real-world problems.",
+    "role": "Full Stack Developer",
+    "tagline": "Full Stack Developer building scalable web applications with React.js, Node.js, TypeScript, and MongoDB.",
+    "about": "I am a Full Stack Developer specializing in building scalable, high-performance web applications using React.js, Node.js, Express.js, MongoDB, and TypeScript. Currently, I work as a Software Developer Intern at Zacser Technologies, contributing to real-world production projects and collaborating with development teams to deliver reliable software solutions. I am passionate about problem-solving, continuous learning, and creating impactful digital experiences that combine clean design with efficient functionality.",
+    "location": "Kerala, India",
+    "availability": "Open to Full Stack Developer opportunities in UAE and India",
     "resumeUrl": "./CV.pdf",
     "email": "abbasakk398@gmail.com",
-    "contactMessage": "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "contactMessage": "I'm currently looking for new opportunities. Whether you have a question, opportunity, or collaboration idea, I'd be happy to connect.",
     "socials": [
       {
         "platform": "GitHub",
@@ -24,58 +26,137 @@
   },
   "education": [
     {
-      "period": "2023 - Present",
+      "period": "2025 - 2026",
       "title": "MERN Stack Development",
       "institution": "Brototype, Kochi",
-      "description": "Intensive, hands-on training focused on full-stack web development. Mastered MongoDB, Express.js, React, and Node.js through complex, real-world project builds and rigorous architectural training."
+      "description": "Intensive hands-on training focused on full-stack web development, software engineering principles, scalable application architecture, and real-world project development using the MERN stack."
     },
     {
       "period": "2021 - 2023",
       "title": "Higher Secondary Education (+2)",
       "institution": "Kerala Board",
-      "description": "Completed core foundational studies with a strong emphasis on analytical thinking and problem-solving, setting the stage for a deep dive into software engineering."
+      "description": "Completed higher secondary education with a strong focus on analytical thinking, problem-solving, and technical foundations."
     }
   ],
   "skills": {
-    "Languages": ["JavaScript", "TypeScript", "HTML5", "CSS3", "C++", "Java", "SQL / NoSQL"],
-    "Frontend": ["React", "Redux", "Tailwind CSS", "Bootstrap", "EJS"],
-    "Backend & DB": ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase"],
-    "Tools & Cloud": ["Git", "Docker", "AWS", "Nginx", "Figma", "Postman"]
+    "Languages": [
+      "JavaScript",
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Java",
+      "C++"
+    ],
+    "Frontend": [
+      "React.js",
+      "Redux",
+      "Tailwind CSS",
+      "Bootstrap",
+      "EJS"
+    ],
+    "Backend": [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "JWT Authentication",
+      "Socket.io"
+    ],
+    "Databases": [
+      "MongoDB",
+      "PostgreSQL",
+      "Firebase"
+    ],
+    "Tools & Cloud": [
+      "Git",
+      "GitHub",
+      "Docker",
+      "AWS",
+      "Nginx",
+      "Postman",
+      "Figma"
+    ]
   },
+  "experience": [
+    {
+      "role": "Software Developer Intern",
+      "company": "Zacser Technologies",
+      "duration": "May 2026 - Present",
+      "tech": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "Git",
+        "GitHub"
+      ],
+      "description": [
+        "Contributing to Dharmarpan Unity, a live production web application serving real users.",
+        "Developing responsive frontend modules using React.js and TypeScript.",
+        "Integrating REST APIs and implementing business workflows.",
+        "Collaborating with developers using Git and GitHub version control.",
+        "Participating in testing, debugging, deployment, and production support.",
+        "Improving application performance and user experience across devices."
+      ]
+    }
+  ],
   "projects": [
     {
       "id": 1,
+      "title": "Dharmarpan Unity",
+      "description": "A live production platform currently under active development, featuring responsive interfaces, QR-based workflows, API integrations, and real-world business processes.",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+      "tags": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "REST API"
+      ],
+      "github": "",
+      "demo": "https://www.dharmarpanunity.com/"
+    },
+    {
+      "id": 2,
       "title": "NexaBid",
-      "description": "My main project—A highly scalable, real-time bidding and auction platform designed to handle significant user concurrency.",
+      "description": "A full-stack real-time auction platform featuring live bidding, user authentication, role-based access control, and instant bid updates using Socket.io.",
       "image": "https://s3.ap-south-1.amazonaws.com/m3india-app-dev/content/card/auction-1525869934-1539767554-1582896834.jpg",
-      "tags": ["Node.js", "MongoDB", "JavaScript", "Express"],
+      "tags": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io",
+        "JWT",
+        "Tailwind CSS"
+      ],
       "github": "https://github.com/abbas2123/NexaBid.git",
       "demo": ""
     },
     {
-      "id": 2,
-      "title": "Cancer Detection using Deep Learning",
-      "description": "An AI-powered mini-project that utilizes deep learning principles to detect and triage instances of skin cancer.",
-      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
-      "tags": ["Python", "Deep Learning", "AI"],
-      "github": "https://github.com/abbas2123/canser-detection-using-deep-learning.git",
-      "demo": ""
-    },
-    {
       "id": 3,
-      "title": "Tesla & SpaceX Clones",
-      "description": "Pixel-perfect front-end clones of the Tesla and SpaceX websites, demonstrating precision in responsive styling and layouts.",
-      "image": "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop",
-      "tags": ["HTML", "CSS", "JavaScript"],
-      "github": "https://github.com/abbas2123",
+      "title": "AI-Based Skin Disease Detection System",
+      "description": "A full-stack MERN application integrated with a Python-based machine learning model for skin disease prediction from uploaded images.",
+      "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop",
+      "tags": [
+        "React.js",
+        "Node.js",
+        "MongoDB",
+        "Python",
+        "Machine Learning"
+      ],
+      "github": "https://github.com/abbas2123/canser-detection-using-deep-learning.git",
       "demo": ""
     },
     {
       "id": 4,
       "title": "User Management System",
-      "description": "A comprehensive backend and frontend system for securely managing user authentication, sessions, and roles.",
+      "description": "A secure user management application with authentication, authorization, session handling, and role-based access control.",
       "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop",
-      "tags": ["Node.js", "MongoDB", "Auth"],
+      "tags": [
+        "Node.js",
+        "MongoDB",
+        "JWT",
+        "Authentication"
+      ],
       "github": "https://github.com/abbas2123",
       "demo": ""
     }

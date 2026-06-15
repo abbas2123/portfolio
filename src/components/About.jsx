@@ -6,11 +6,11 @@ const About = ({ personal, education }) => {
     <section id="about" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         <h2 className="section-title">About Me</h2>
-        
+
         <div className="about-layout">
-          
+
           {/* Bio Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -23,10 +23,10 @@ const About = ({ personal, education }) => {
             <p className="about-bio-text">
               {personal.about}
             </p>
-            
-            <a 
-              href={personal.resumeUrl} 
-              target="_blank" 
+
+            <a
+              href={personal.resumeUrl}
+              target="_blank"
               rel="noreferrer"
               className="about-cv-btn"
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
@@ -37,21 +37,21 @@ const About = ({ personal, education }) => {
           </motion.div>
 
           {/* Education Timeline */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="about-education"
           >
-            <h3 className="about-edu-heading">Education & Experience</h3>
-            
+            <h3 className="about-edu-heading">Education</h3>
+
             <div className="about-timeline">
               {education.map((item, idx) => (
                 <div key={idx} className="about-timeline-item">
                   {/* Timeline Dot */}
                   <div className="about-timeline-dot"></div>
-                  
+
                   <span className="about-timeline-period">
                     {item.period}
                   </span>

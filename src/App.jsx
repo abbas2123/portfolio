@@ -11,6 +11,7 @@ import SmoothScroll from './components/SmoothScroll';
 import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
+import Experience from './components/Experience';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,13 +29,14 @@ function App() {
       <AnimatePresence>
         {isLoading && <Preloader />}
       </AnimatePresence>
-      
+
       {!isLoading && (
         <SmoothScroll>
           <Navbar personal={portfolioData.personal} />
           <main>
             <Hero personal={portfolioData.personal} />
             <About personal={portfolioData.personal} education={portfolioData.education} />
+            <Experience experience={portfolioData.experience} />
             <Skills skills={portfolioData.skills} />
             <Projects projects={portfolioData.projects} />
           </main>
