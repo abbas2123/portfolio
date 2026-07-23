@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "Muhammed Abbas",
-    "role": "Full Stack Developer",
-    "tagline": "Full Stack Developer building scalable web applications with React.js, Node.js, TypeScript, and MongoDB.",
-    "about": "I am a Full Stack Developer specializing in building scalable, high-performance web applications using React.js, Node.js, Express.js, MongoDB, and TypeScript. Currently, I work as a Software Developer Intern at Zacser Technologies, contributing to real-world production projects and collaborating with development teams to deliver reliable software solutions. I am passionate about problem-solving, continuous learning, and creating impactful digital experiences that combine clean design with efficient functionality.",
+    "role": "MERN Stack & React Native Developer",
+    "tagline": "MERN Stack & React Native Developer building scalable web and mobile applications with React.js, React Native, Node.js, TypeScript, and MongoDB.",
+    "about": "I am a MERN Stack & React Native Developer specializing in building scalable, high-performance web and cross-platform mobile applications using React.js, React Native, Node.js, Express.js, MongoDB, and TypeScript. I have hands-on experience developing production-ready applications, integrating REST APIs, implementing secure authentication, and optimizing application performance. I enjoy solving real-world problems, writing clean and maintainable code, and continuously learning modern technologies to build reliable software solutions.",
     "location": "Kerala, India",
     "availability": "Open to Full Stack Developer opportunities in UAE and India",
     "resumeUrl": "./CV.pdf",
@@ -48,7 +48,15 @@
       "C++",
       "SQL / NoSQL"
     ],
-    "Frontend": ["React.js", "Redux", "Tailwind CSS", "Bootstrap", "EJS"],
+    "Frontend": [
+      "React.js",
+      "React Native",
+      "Redux",
+      "Context API",
+      "Tailwind CSS",
+      "Bootstrap",
+      "EJS"
+    ],
     "Backend": [
       "Node.js",
       "Express.js",
@@ -63,23 +71,36 @@
       "Docker",
       "AWS",
       "Nginx",
+      "PM2",
       "Postman",
-      "Figma"
+      "Figma",
+      "Vercel",
+      "Cloudinary"
     ]
   },
   "experience": [
     {
       "role": "Software Developer Intern",
-      "company": "Zacser Technologies",
-      "duration": "May 2026 - Present",
-      "tech": ["React.js", "TypeScript", "Node.js", "MongoDB", "Git", "GitHub"],
+      "company": "Zacser business llp",
+      "duration": "May 2026 - July 2026",
+      "tech": [
+        "React.js",
+        "React Native",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Git",
+        "GitHub"
+      ],
       "description": [
-        "Contributing to Dharmarpan Unity, a live production web application serving real users.",
-        "Developing responsive frontend modules using React.js and TypeScript.",
-        "Integrating REST APIs and implementing business workflows.",
-        "Collaborating with developers using Git and GitHub version control.",
-        "Participating in testing, debugging, deployment, and production support.",
-        "Improving application performance and user experience across devices."
+        "Developed and maintained production-grade web applications using React.js, TypeScript, Node.js, Express.js, and MongoDB.",
+        "Built cross-platform mobile applications using React Native and TypeScript.",
+        "Integrated RESTful APIs into both web and mobile applications.",
+        "Developed reusable UI components with responsive and mobile-first design principles.",
+        "Implemented secure JWT-based authentication and optimized application performance.",
+        "Collaborated with developers, designers, and QA engineers using Git/GitHub and Agile development practices.",
+        "Participated in debugging, testing, deployment, and production support while writing clean and maintainable code."
       ]
     }
   ],

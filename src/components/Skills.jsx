@@ -1,42 +1,85 @@
-import React from 'react';
+import React from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue } from "framer-motion";
 
-import { FaJava as FaJavaIcon, FaDatabase as FaDatabaseIcon, FaCode as FaCodeIcon, FaHtml5, FaCss3Alt, FaAws } from 'react-icons/fa';
-import { 
-  SiJavascript, SiTypescript, SiCplusplus,
-  SiReact, SiRedux, SiTailwindcss, SiBootstrap,
-  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiFirebase,
-  SiGit, SiDocker, SiNginx, SiFigma, SiPostman
-} from 'react-icons/si';
+import {
+  FaJava as FaJavaIcon,
+  FaDatabase as FaDatabaseIcon,
+  FaCode as FaCodeIcon,
+  FaHtml5,
+  FaCss3Alt,
+  FaAws,
+} from "react-icons/fa";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiCplusplus,
+  SiReact,
+  SiRedux,
+  SiTailwindcss,
+  SiBootstrap,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiFirebase,
+  SiGit,
+  SiDocker,
+  SiNginx,
+  SiFigma,
+  SiPostman,
+  SiCloudinary,
+} from "react-icons/si";
+
+import { TbBrandReactNative } from "react-icons/tb";
 
 const getIcon = (s) => {
   const map = {
-    'JavaScript': <SiJavascript color="#F7DF1E" />,
-    'TypeScript': <SiTypescript color="#3178C6" />,
-    'HTML5': <FaHtml5 color="#E34F26" />,
-    'CSS3': <FaCss3Alt color="#1572B6" />,
-    'C++': <SiCplusplus color="#00599C" />,
-    'Java': <FaJavaIcon color="#b07219" />,
-    'SQL / NoSQL': <FaDatabaseIcon color="#336791" />,
-    'React': <SiReact color="#61DAFB" />,
-    'Redux': <SiRedux color="#764ABC" />,
-    'Tailwind CSS': <SiTailwindcss color="#06B6D4" />,
-    'Bootstrap': <SiBootstrap color="#7952B3" />,
-    'EJS': <FaCodeIcon color="#a1cf36" />,
-    'Node.js': <SiNodedotjs color="#339933" />,
-    'Express.js': <SiExpress color="#FFF" />,
-    'MongoDB': <SiMongodb color="#47A248" />,
-    'PostgreSQL': <SiPostgresql color="#336791" />,
-    'Firebase': <SiFirebase color="#FFCA28" />,
-    'Git': <SiGit color="#F05032" />,
-    'Docker': <SiDocker color="#2496ED" />,
-    'AWS': <FaAws color="#232F3E" />,
-    'Nginx': <SiNginx color="#009639" />,
-    'Figma': <SiFigma color="#F24E1E" />,
-    'Postman': <SiPostman color="#FF6C37" />,
+    JavaScript: <SiJavascript color="#F7DF1E" />,
+    TypeScript: <SiTypescript color="#3178C6" />,
+    HTML5: <FaHtml5 color="#E34F26" />,
+    CSS3: <FaCss3Alt color="#1572B6" />,
+    "C++": <SiCplusplus color="#00599C" />,
+    Java: <FaJavaIcon color="#b07219" />,
+    "SQL / NoSQL": <FaDatabaseIcon color="#336791" />,
+    Redux: <SiRedux color="#764ABC" />,
+    "Tailwind CSS": <SiTailwindcss color="#06B6D4" />,
+    Bootstrap: <SiBootstrap color="#7952B3" />,
+    EJS: <FaCodeIcon color="#a1cf36" />,
+    "Node.js": <SiNodedotjs color="#339933" />,
+    "Express.js": <SiExpress color="#FFF" />,
+    MongoDB: <SiMongodb color="#47A248" />,
+    PostgreSQL: <SiPostgresql color="#336791" />,
+    Firebase: <SiFirebase color="#FFCA28" />,
+    Git: <SiGit color="#F05032" />,
+    Docker: <SiDocker color="#2496ED" />,
+    AWS: <FaAws color="#232F3E" />,
+    Nginx: <SiNginx color="#009639" />,
+    Figma: <SiFigma color="#F24E1E" />,
+    Postman: <SiPostman color="#FF6C37" />,
+
+    "React.js": <SiReact color="#61DAFB" />,
+    "React Native": <TbBrandReactNative color="#61DAFB" />,
+    "Context API": <SiReact color="#61DAFB" />,
+    "RESTful APIs": <FaCodeIcon color="#22C55E" />,
+    PM2: <FaCodeIcon color="#2ECC71" />,
+    Cloudinary: <SiCloudinary color="#3448C5" />,
+    "MongoDB Atlas": <SiMongodb color="#47A248" />,
+    "JWT Authentication": <FaCodeIcon color="#F59E0B" />,
+    "Socket.io": <FaCodeIcon color="#010101" />,
   };
-  return map[s] || <div style={{width:8,height:8,borderRadius:'50%',background:'currentColor'}} />;
+  return (
+    map[s] || (
+      <div
+        style={{
+          width: 8,
+          height: 8,
+          borderRadius: "50%",
+          background: "currentColor",
+        }}
+      />
+    )
+  );
 };
 
 const BentoCard = ({ category, items, index, color }) => {
@@ -57,22 +100,48 @@ const BentoCard = ({ category, items, index, color }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseMove={onMouseMove}
-      className={`bento-card ${isLarge ? 'bento-large' : ''}`}
+      className={`bento-card ${isLarge ? "bento-large" : ""}`}
     >
-      <motion.div style={{
-        position:'absolute', inset:0,
-        background:`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${color}15, transparent 80%)`,
-        zIndex:0
-      }} />
-      <div style={{ position:'relative', zIndex:1, height:'100%', display:'flex', flexDirection:'column' }}>
+      <motion.div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: `radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${color}15, transparent 80%)`,
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div className="bento-header">
-          <div style={{ width:12, height:12, borderRadius:3, background:color, boxShadow:`0 0 15px ${color}`, marginRight:15 }} />
+          <div
+            style={{
+              width: 12,
+              height: 12,
+              borderRadius: 3,
+              background: color,
+              boxShadow: `0 0 15px ${color}`,
+              marginRight: 15,
+            }}
+          />
           <h3 className="bento-title">{category}</h3>
         </div>
         <div className="bento-items">
           {items.map((item, idx) => (
-            <motion.div key={idx} whileHover={{ scale:1.05, borderColor:color }} className="skill-pill">
-              <span style={{ fontSize:'1.2rem', display:'flex' }}>{getIcon(item)}</span>
+            <motion.div
+              key={idx}
+              whileHover={{ scale: 1.05, borderColor: color }}
+              className="skill-pill"
+            >
+              <span style={{ fontSize: "1.2rem", display: "flex" }}>
+                {getIcon(item)}
+              </span>
               {item}
             </motion.div>
           ))}
@@ -84,20 +153,37 @@ const BentoCard = ({ category, items, index, color }) => {
 
 const Skills = ({ skills }) => {
   const categories = Object.keys(skills);
-  const colors = ['#8B5CF6','#3B82F6','#10B981','#F59E0B'];
+  const colors = ["#8B5CF6", "#3B82F6", "#10B981", "#F59E0B"];
 
   return (
     <section id="skills" className="skills-section">
       <div className="skills-orb s-orb1" />
       <div className="skills-orb s-orb2" />
       <div className="container">
-        <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5}} style={{marginBottom:'4rem',textAlign:'center'}}>
-          <h2 className="section-title" style={{marginBottom:'1rem'}}>Technical Arsenal</h2>
-          <p className="skills-sub">A curated list of my expertise in building robust, performant web applications.</p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{ marginBottom: "4rem", textAlign: "center" }}
+        >
+          <h2 className="section-title" style={{ marginBottom: "1rem" }}>
+            Technical Arsenal
+          </h2>
+          <p className="skills-sub">
+            A curated list of my expertise in building robust, performant web
+            applications.
+          </p>
         </motion.div>
         <div className="bento-grid">
           {categories.map((cat, i) => (
-            <BentoCard key={cat} category={cat} items={skills[cat]} index={i} color={colors[i%colors.length]} />
+            <BentoCard
+              key={cat}
+              category={cat}
+              items={skills[cat]}
+              index={i}
+              color={colors[i % colors.length]}
+            />
           ))}
         </div>
       </div>
