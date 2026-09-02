@@ -166,24 +166,24 @@
       "github": "https://github.com/abbas2123/YOUR_NETFLIX_REPOSITORY",
       "demo": ""
     },
-   {
-     "id": 5,
-     "title": "TOTC - E-Learning Platform",
-     "description": "A full-stack e-learning platform with dedicated workflows for students, instructors, and administrators, featuring authentication, role-based access control, course management, quizzes, payments, and centralized error handling.",
-     "image": "",
-     "tags": [
-       "React.js",
-       "TypeScript",
-       "Node.js",
-       "Express.js",
-       "MongoDB",
-       "Redux Toolkit",
-       "JWT",
-       "Clean Architecture",
-       "REST API"
-     ],
-     "github": "https://github.com/abbas2123/E-learning.git",
-     "demo": "https://www.totc.store"
-   }
+    {
+      "id": 5,
+      "title": "TOTC - E-Learning Platform",
+      "description": "A full-stack e-learning platform with dedicated workflows for students, instructors, and administrators, featuring authentication, role-based access control, course management, quizzes, payments, and centralized error handling.",
+      "image": "/src/assets/elarning.png",
+      "tags": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Redux Toolkit",
+        "JWT",
+        "Clean Architecture",
+        "REST API"
+      ],
+      "github": "https://github.com/abbas2123/E-learning.git",
+      "demo": "https://www.totc.store"
+    }
   ]
 }
