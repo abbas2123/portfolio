@@ -170,7 +170,7 @@
       "id": 5,
       "title": "TOTC - E-Learning Platform",
       "description": "A full-stack e-learning platform with dedicated workflows for students, instructors, and administrators, featuring authentication, role-based access control, course management, quizzes, payments, and centralized error handling.",
-      "image": "/public/elarning.png",
+      "image": "/elarning.png",
       "tags": [
         "React.js",
         "TypeScript",
